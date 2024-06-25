@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <template id="my_ref_invoice_document_inherit" inherit_id="account.report_invoice_document">
+            <xpath expr="//div[@name='delivery_date']" position="after">
+                <div t-attf-class="#{'col-auto col-3 mw-100' if report_type != 'html' else 'col'} mb-2">
+                    <strong>Project Name:</strong>
+                    <br/>
+                    <span t-field="o.project_id"/>
+                </div>
+            </xpath>
+        </template>
+
+    </data>
+</odoo>

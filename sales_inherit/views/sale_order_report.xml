@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <template id="my_ref_saleorder_document_inherit" inherit_id="sale.report_saleorder_document">
+            <xpath expr="//div[@id='informations']" position="after">
+                <div class="row mt-4 mb-2">
+                    <strong>Project Name:</strong>
+                    <span class="m-0" t-field="doc.project_name"/>
+                </div>
+            </xpath>
+        </template>
+    </data>
+</odoo>

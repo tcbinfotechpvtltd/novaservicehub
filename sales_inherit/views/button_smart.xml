@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_order_form_invoice" model="ir.ui.view">
+            <field name="name">project.invoice.form</field>
+            <field name="model">project.project</field>
+            <field name="inherit_id" ref="project.edit_project"/>
+            <field name="arch" type="xml">
+
+
+                <xpath expr="//field[@name='date_start']" position="after">
+                    <field name="unsettled_profit_loss"/>
+                    <field name="profit_loss"/>
+                </xpath>
+
+
+                <xpath expr="//button[@class='oe_stat_button']" position="replace">
+                    <button type="object" name="invoice" icon="fa-tasks" string="Sale Order"/>
+                </xpath>
+
+
+                <xpath expr="//button[@name='project_update_all_action']" position="replace">
+                    <button type="object" name="view_expenses" icon="fa-tasks" string="Expenses"/>
+                </xpath>
+
+                <xpath expr="//button[@name='%(project.project_collaborator_action)d']" position="replace">
+                    <button type="object" name="view_invoice" icon="fa-tasks" string="Invoices"/>
+                </xpath>
+
+
+                <xpath expr="//page[@name='description']" position="before">
+                    <page string="Sale/Expense/Invoicing" name="sale_expense_invoicing">
+                        <group>
+                            <field name="sale_id" readonly="1"/>
+                            <field name="invoicing_id" readonly="1"/>
+                            <field name="expense_id" readonly="1"/>
+                        </group>
+                    </page>
+                </xpath>
+
+
+            </field>
+        </record>
+
+        <record id="view_project_kanban_inherit" model="ir.ui.view">
+            <field name="name">project.project.kanban.inherited.button.details</field>
+            <field name="model">project.project</field>
+            <field name="inherit_id" ref="project.view_project_kanban"/>
+            <field name="arch" type="xml">
+            <field name="activity_ids" position="after">
+            <a type="open">
+                <span class="o_label">
+                <span class="fa fa-info-circle"/>
+                    Open
+                </span>
+            </a>
+            </field>
+            </field>
+        </record>
+    </data>
+</odoo>
