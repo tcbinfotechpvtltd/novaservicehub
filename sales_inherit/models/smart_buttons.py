@@ -10,6 +10,11 @@ class HrExpenses(models.Model):
     profit_loss = fields.Float(string='Settled Profit & Loss', compute='_compute_profit_loss')
     unsettled_profit_loss = fields.Float(string='Unsettled Profit & Loss', compute='_compute_profit_loss')
 
+    allow_billable = fields.Boolean(default=True)
+
+
+
+
     @api.depends('invoicing_id.state', 'sale_id.state', 'expense_id.state')
     def _compute_profit_loss(self):
         for project in self:
@@ -63,3 +68,5 @@ class HrExpenses(models.Model):
             'domain': [('project_id', '=', self.id)],  # You can add a domain if you want to filter the records
             'context': {'create': False},  # You can customize the context if needed
         }
+
+
