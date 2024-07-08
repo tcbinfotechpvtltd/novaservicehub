@@ -7,6 +7,14 @@
                     <strong>Project Name:</strong>
                     <span class="m-0" t-field="doc.project_name"/>
                 </div>
+                <div class="row mt-4 mb-2">
+                    <strong>Site:</strong>
+                    <span class="m-0" t-field="doc.site"/>
+                </div>
+                <div class="row mt-4 mb-2">
+                    <strong>Description:</strong>
+                    <span class="m-0" t-field="doc.description"/>
+                </div>
             </xpath>
         </template>
     </data>

@@ -5,6 +5,8 @@ class SaleOrder(models.Model):
     _inherit = 'sale.order'
 
     project_name = fields.Many2one('project.project',string="Project Name")
+    site = fields.Char(string="Site")
+    description = fields.Html(string="Description")
 
     @api.onchange('project_name')
     def _onchange_project_name(self):

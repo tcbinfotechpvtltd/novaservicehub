@@ -8,6 +8,8 @@
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='payment_term_id']" position="after">
                     <field name="project_name"/>
+                    <field name="site"/>
+                    <field name="description"/>
                 </xpath>
             </field>
         </record>
@@ -20,6 +22,8 @@
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='name']" position="after">
                     <field name="project_name"/>
+                    <field name="site"/>
+                    <field name="description"/>
                 </xpath>
             </field>
         </record>

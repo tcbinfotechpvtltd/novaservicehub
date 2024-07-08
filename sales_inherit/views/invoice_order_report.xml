@@ -8,6 +8,16 @@
                     <br/>
                     <span t-field="o.project_id"/>
                 </div>
+                <div t-attf-class="#{'col-auto col-3 mw-100' if report_type != 'html' else 'col'} mb-2">
+                    <strong>Site:</strong>
+                    <br/>
+                    <span t-field="o.site"/>
+                </div>
+                <div t-attf-class="#{'col-auto col-3 mw-100' if report_type != 'html' else 'col'} mb-2 mr-1">
+                    <strong>Description:</strong>
+                    <br/>
+                    <span t-field="o.description"/>
+                </div>
             </xpath>
         </template>
 

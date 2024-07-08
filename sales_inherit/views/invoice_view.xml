@@ -9,6 +9,8 @@
                 <xpath expr="//field[@name='partner_id']" position="after">
                     <field name="sale_order_id" string="Sale Order"/>
                     <field name="project_id" string="Project Name"/>
+                    <field name="site"/>
+                    <field name="description"/>
                 </xpath>
             </field>
         </record>
@@ -21,6 +23,8 @@
                 <xpath expr="//field[@name='name']" position="after">
                     <field name="sale_order_id"/>
                     <field name="project_id"/>
+                    <field name="site"/>
+                    <field name="description"/>
                 </xpath>
             </field>
         </record>
