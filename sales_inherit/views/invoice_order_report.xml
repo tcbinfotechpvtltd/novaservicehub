@@ -19,6 +19,15 @@
                     <span t-field="o.description"/>
                 </div>
             </xpath>
+            <xpath expr="//div[@name='address_not_same_as_shipping']//address[@class='mb-0']" position="replace">
+                <address class="mb-0" t-field="o.partner_id" t-options='{"widget": "contact", "fields": ["address", "name", "email", "phone"], "no_marker": True}'/>
+            </xpath>
+            <xpath expr="//div[@name='address_same_as_shipping']//address[@class='mb-0']" position="replace">
+                <address class="mb-0" t-field="o.partner_id" t-options='{"widget": "contact", "fields": ["address", "name", "email", "phone"], "no_marker": True}'/>
+            </xpath>
+            <xpath expr="//div[@name='no_shipping']//address[@class='mb-0']" position="replace">
+                <address class="mb-0" t-field="o.partner_id" t-options='{"widget": "contact", "fields": ["address", "name", "email", "phone"], "no_marker": True}'/>
+            </xpath>
         </template>
 
     </data>

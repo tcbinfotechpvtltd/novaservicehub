@@ -16,6 +16,26 @@
                     <span class="m-0" t-field="doc.description"/>
                 </div>
             </xpath>
+            <!-- Add phone and email to the address section -->
+            <xpath expr="//div[@t-field='doc.partner_id']" position="attributes">
+                <attribute name="t-options">
+                    {"widget": "contact", "fields": ["address", "name", "email", "phone"], "no_marker": True}
+                </attribute>
+            </xpath>
+
+            <!-- Add phone and email to the invoicing address section -->
+            <xpath expr="//div[@t-field='doc.partner_invoice_id']" position="attributes">
+                <attribute name="t-options">
+                    {"widget": "contact", "fields": ["address", "name", "phone", "email"], "no_marker": True, "phone_icons": True}
+                </attribute>
+            </xpath>
+
+            <!-- Add phone and email to the shipping address section -->
+            <xpath expr="//div[@t-field='doc.partner_shipping_id']" position="attributes">
+                <attribute name="t-options">
+                    {"widget": "contact", "fields": ["address", "name", "phone", "email"], "no_marker": True, "phone_icons": True}
+                </attribute>
+            </xpath>
         </template>
     </data>
 </odoo>

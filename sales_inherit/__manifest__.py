@@ -16,6 +16,7 @@
         'views/hr_expenses_view.xml',
         'views/button_smart.xml',
         'views/product_field.xml',
-        'views/project_project.xml'
+        'views/project_project.xml',
+        'views/company_view.xml'
     ]
 }
