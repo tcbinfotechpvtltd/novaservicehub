@@ -1,0 +1,115 @@
+<odoo>
+    <!-- Expense Master Form View -->
+    <record id="view_expense_master_form" model="ir.ui.view">
+        <field name="name">expense.master.form</field>
+        <field name="model">expense.master</field>
+        <field name="arch" type="xml">
+            <form string="Expense Master">
+                <header>
+                    <!-- <button name="action_submit_expenses" string="Create Report" type="object"
+                          class="oe_highlight o_expense_submit" invisible="nb_attachment &lt;= 0 or sheet_ids" data-hotkey="v"/> -->
+                      <!-- <button name="action_view_sheet" type="object" string="View Report" class="oe_highlight" invisible="not sheet_id or nb_attachment &lt; 1" data-hotkey="w"/>
+                      <widget name="attach_document" string="Attach Receipt" action="attach_document" invisible="nb_attachment &lt; 1"/>
+                      <widget name="attach_document" string="Attach Receipt" action="attach_document" highlight="1" invisible="nb_attachment &gt;= 1"/> -->
+                      <!-- <button name="action_submit_expenses" string="Create Report" type="object" class="o_expense_submit"
+                          invisible="nb_attachment &gt;= 1 or sheet_ids" data-hotkey="v"/> -->
+                    <!-- <button name="action_submit_sheet" string="Submit to Manager" invisible="not sheet_ids or is_submitted" type="object" class="oe_highlight o_expense_sheet_submit" data-hotkey="l"/> -->
+
+                    <!-- <button name="action_approve_expense_sheets"
+                            string="Approve"
+                            type="object"
+                            data-hotkey="q"
+                            context="{'validate_analytic': True}"
+                            invisible="not sheet_ids or is_approved"
+                            class="oe_highlight o_expense_sheet_approve"/>
+
+                    <button name="action_sheet_move_create"
+                            string="Post Journal Entries"
+                            type="object"
+                            data-hotkey="y"
+                            class="oe_highlight o_expense_sheet_post"
+                            invisible="not sheet_ids or is_post_entries"
+                            groups="account.group_account_invoice"/>
+
+                    <button name="action_register_payment"
+                            string="Register Payment"
+                            type="object"
+                            data-hotkey="w"
+                            class="oe_highlight o_expense_sheet_pay"
+                            context="{'dont_redirect_to_payments': True}"
+                            invisible="not sheet_ids or is_payment"
+                            groups="account.group_account_invoice"/> -->
+
+                    </header>
+                <sheet>
+                    <field name="sheet_ids" invisible="1"/>
+                    <field name="nb_attachment" invisible="1"/>
+                    <field name="is_submitted" invisible="1"/>
+                    <field name="is_approved" invisible="1"/>
+                    <field name="is_post_entries" invisible="1"/>
+                    <field name="is_payment" invisible="1"/>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_open_expense_view"
+                            class="oe_stat_button"
+                            icon="fa-file-text-o"
+                            type="object"
+                            invisible="nb_expense == 0">
+                            <field name="nb_expense" widget="statinfo" string="Expenses"/>
+                        </button>
+                        <!-- <button name="action_open_report_view"
+                            class="oe_stat_button"
+                            icon="fa-file-text-o"
+                            type="object"
+                            invisible="nb_expense == 0">
+                            <field name="nb_report" widget="statinfo" string="Reports"/>
+                        </button> -->
+                    </div>
+                    <group>
+                        <field name="name"/>
+                        <field name="project_id"/>
+                    </group>
+                    <notebook>
+                        <page string="Expenses">
+                            <field name="expense_ids">
+                                <tree editable="bottom">
+                                    <field name="is_editable" column_invisible="1"/>
+                                    <field name="company_id" column_invisible="1"/>
+                                    <field name="sheet_id" column_invisible="1"/>
+                                    <field name="nb_attachment" column_invisible="1"/>
+                                    <field name="name" readonly="not is_editable"/>
+                                    <field name="product_id" required="1" readonly="not is_editable" context="{'default_detailed_type': 'service', 'default_can_be_expensed': 1, 'tree_view_ref': 'hr_expense.product_product_expense_tree_view', 'form_view_ref': 'hr_expense.product_product_expense_form_view'}" class="w-100"/>
+                                    <field name="payment_mode" readonly="sheet_id"/>
+                                    <field name="employee_id"/>
+                                    <field name="total_amount_currency"/>
+                                    <field name="tax_ids" force_save="1" widget="many2many_tags" readonly="not is_editable" options="{'no_create': True}"/>
+                                    <field name="tax_amount_currency"/>
+                                    <field name="project_name"/>
+                                    <field name="date"/>
+                                    <field name="description"/>
+                                    <!-- <widget name="attach_document" string="Attach Receipt" action="attach_document" column_invisible="nb_attachment &lt; 1"/> -->
+                                    <!-- <widget name="attach_document" string="Attach Receipt" action="hr_expense.attach_document" highlight="true" column_invisible="nb_attachment &gt;= 1"/> -->
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="o_attachment_preview o_center_attachment"/>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action to Open Expense Master -->
+    <record id="action_expense_master" model="ir.actions.act_window">
+        <field name="name">Expense Master</field>
+        <field name="res_model">expense.master</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menu Item for Expense Master -->
+    <menuitem id="menu_expense_master" name="Expense Master" parent="hr_expense.menu_hr_expense_root" action="action_expense_master"/>
+</odoo>
