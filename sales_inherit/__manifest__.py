@@ -7,7 +7,7 @@
     'category': 'Category',
     'author': 'Shubham',
     'website': 'Website',
-    'depends': ['sale', 'account','hr_expense','project','sale_management'],
+    'depends': ['sale', 'account','hr_expense','project','sale_management', 'tg_sign_app'],
     'data': [
         'views/sale_order_report.xml',
         'views/invoice_order_report.xml',
