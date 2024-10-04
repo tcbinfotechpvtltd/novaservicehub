@@ -21,6 +21,9 @@
                 <xpath expr="//field[@name='date']" position="after">
                     <field name="project_name"/>
                 </xpath>
+                <field name="payment_mode" position="replace">
+                    <field name="company_id"/>
+                </field>
             </field>
         </record>
     </data>
