@@ -46,7 +46,7 @@ class HrExpenses(models.Model):
             'view_mode': 'tree,form',
             'res_model': 'sale.order',
             'domain': [('project_name', '=', self.id)],  # You can add a domain if you want to filter the records
-            'context': {'create': False},  # You can customize the context if needed
+            # 'context': {'create': False},  # You can customize the context if needed
         }
 
     def view_expenses(self):
@@ -56,7 +56,7 @@ class HrExpenses(models.Model):
             'view_mode': 'tree,form',
             'res_model': 'hr.expense',
             'domain': [('project_name', '=', self.id)],  # You can add a domain if you want to filter the records
-            'context': {'create': False},  # You can customize the context if needed
+            # 'context': {'create': False},  # You can customize the context if needed
         }
 
     def view_invoice(self):
@@ -66,7 +66,7 @@ class HrExpenses(models.Model):
             'view_mode': 'tree,form',
             'res_model': 'account.move',
             'domain': [('project_id', '=', self.id)],  # You can add a domain if you want to filter the records
-            'context': {'create': False},  # You can customize the context if needed
+            # 'context': {'create': False},  # You can customize the context if needed
         }
 
 
