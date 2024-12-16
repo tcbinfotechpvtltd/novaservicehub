@@ -5,8 +5,11 @@
         <field name="view_id" ref="project.view_project"/>
     </record>
 
-    <record id="project.open_view_project_all_group_stage" model="ir.actions.act_window">
+    <!-- <record id="project.open_view_project_all_group_stage" model="ir.actions.act_window">
         <field name="view_id" ref="project.view_project"/>
+    </record> -->
+    <record id="project.open_view_project_all_group_stage_tree_view" model="ir.actions.act_window.view">
+        <field name="sequence" eval="1"/>
     </record>
 
 
